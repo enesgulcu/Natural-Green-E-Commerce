@@ -1,0 +1,52 @@
+import { GiWorld } from "react-icons/gi";
+import { useSelector, useDispatch } from "react-redux";
+import {showLanguageDropDown, changeLanguage} from "../../redux/states/header/topBar/topBar.js";
+//tailwind styled component
+import {LanguageSection, LanguageButton, DropDownLanguage, LanguageList, ChooseLanguage,} from '../../styles/Header/topBar';
+import { motion, AnimatePresence } from "framer-motion";
+
+
+export default function Language() {
+    const dispatch = useDispatch();
+    const languageDropDownCheck = useSelector((state) => state.topBar.languageDropDown);
+    const Language = useSelector((state) => state.topBar.language);
+  return (
+    <>
+        <LanguageSection>
+            <LanguageButton onClick={() => dispatch(showLanguageDropDown())}>
+              <GiWorld size={20} className="mr-1" />
+              <h5>{Language}</h5>
+            </LanguageButton>
+              <AnimatePresence>
+              {languageDropDownCheck && (
+                <motion.div 
+                //initial:animasyon başlangıç değerleri
+                //animate:animasyonun bitiş değerleri
+                //exit:animasyonun geri sarma final değerleri
+                //transition:animasyonun gerçekleşme süresi
+                //Not: "motion.div" ile hareket edecek olan yapıyı sarmalla!
+                initial={{ opacity: 0, x:-90 }}
+                animate={{ opacity: 1, y: 30 }}
+                exit={{ opacity: 0, y:0 }}
+                transition={{duration: 0.5 }}>
+                <DropDownLanguage>
+                  <ChooseLanguage>
+                    <LanguageList $isActive={Language ==="English"} onClick={() => dispatch(changeLanguage("English"), dispatch(showLanguageDropDown()))}>                  
+                      English
+                    </LanguageList>
+                    <LanguageList $isActive={Language ==="Turkish"} onClick={() => dispatch(changeLanguage("Turkish"), dispatch(showLanguageDropDown()))}>
+                      Turkish
+                    </LanguageList>
+                    <LanguageList $isActive={Language ==="Spanish"} onClick={() => dispatch(changeLanguage("Spanish"), dispatch(showLanguageDropDown()))}>
+                      Spanish
+                    </LanguageList>
+                  </ChooseLanguage>
+                </DropDownLanguage>
+                </motion.div>
+              )}
+              </AnimatePresence>
+          </LanguageSection>
+    </>
+  )
+}
+
