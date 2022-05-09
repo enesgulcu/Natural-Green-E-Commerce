@@ -1,6 +1,7 @@
+import React,{useEffect, useRef} from "react";
 import { GiWorld } from "react-icons/gi";
 import { useSelector, useDispatch } from "react-redux";
-import {showLanguageDropDown, changeLanguage} from "../../redux/states/header/topBar/topBar.js";
+import {showLanguageDropDown, changeLanguage, closeLanguageDropDown} from "../../redux/states/header/topBar/topBar.js";
 //tailwind styled component
 import {LanguageSection, LanguageButton, DropDownLanguage, LanguageList, ChooseLanguage,} from '../../styles/Header/topBar';
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,9 +11,21 @@ export default function Language() {
     const dispatch = useDispatch();
     const languageDropDownCheck = useSelector((state) => state.topBar.languageDropDown);
     const Language = useSelector((state) => state.topBar.language);
+
+    const ref = useRef();
+
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (!ref.current.contains(event.target)) {
+          dispatch(closeLanguageDropDown());
+        }
+      };
+      document.addEventListener("mousedown", handleClickOutside);
+    },[ref]);
+
   return (
     <>
-        <LanguageSection>
+        <LanguageSection ref={ref}>
             <LanguageButton onClick={() => dispatch(showLanguageDropDown())}>
               <GiWorld size={20} className="mr-1" />
               <h5>{Language}</h5>
