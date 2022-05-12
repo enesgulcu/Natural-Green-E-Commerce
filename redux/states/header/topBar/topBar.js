@@ -8,6 +8,7 @@ export const languageSlice = createSlice({
     language:"English",
     moneyDropDown: false,
     money:"$",
+    basketDropDown:false,
     },
 
     reducers:{
@@ -33,10 +34,16 @@ export const languageSlice = createSlice({
         },  
         closeMoneyDropDown :(state)=>{
             state.moneyDropDown = false;
-        },   
+        },  
+        
+        showBasketDropDown:(state)=>{
+            state.moneyDropDown = false;
+            state.languageDropDown = false;
+            state.basketDropDown = !state.basketDropDown;
+        },
     }
 
 });
 
-export const {showLanguageDropDown, changeLanguage,closeLanguageDropDown, showMoneyDropDown, changeMoney, closeMoneyDropDown} = languageSlice.actions;
+export const {showLanguageDropDown, changeLanguage,closeLanguageDropDown, showMoneyDropDown, changeMoney, closeMoneyDropDown, showBasketDropDown} = languageSlice.actions;
 export default languageSlice.reducer;
