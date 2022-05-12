@@ -57,13 +57,13 @@ export default function Modal() {
 
 
   return (
-    <>
+    <div className='relative'>
     <AnimatePresence className="relative">
     {basketDropDownCheck &&(
         <motion.div className='relative z-40'
-        initial={{opacity: 0, x: 100 }}
+        initial={{opacity: 0, x: -400 }}
         animate={{ opacity: 1, x: 0 }}
-        exit={{ opacity: 0, y:0 }}
+        exit={{ opacity: 0,  x: -400}}
         transition={{duration: 0.5 }}
         >
         
@@ -121,20 +121,20 @@ export default function Modal() {
 
     <AnimatePresence >
     {basketDropDownCheck &&(
-        <motion.div className="relative z-50"
+        <motion.div className="absolute w-full h-screen top-0 z-30"
         initial={{opacity: 0}}
         animate={{ opacity: 1}}
         exit={{ opacity: 0 }}
         transition={{duration: 0.5 }}
         >
 
-        <div className="bg-black bg-opacity-50  w-full h-full absolute z-50"></div>
+        <div className="bg-black bg-opacity-50 w-full h-full  "></div>
         
         </motion.div>
     )}
     </AnimatePresence>
         
-    </>   
+    </div>   
     
   )
 }

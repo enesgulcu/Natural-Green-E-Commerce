@@ -16,7 +16,7 @@ export default function Language() {
 
     useEffect(() => {
       const handleClickOutside = (event) => {
-        if (!ref.current.contains(event.target)) {
+        if (!ref.current?.contains(event.target)) {
           dispatch(closeLanguageDropDown());
         }
       };
