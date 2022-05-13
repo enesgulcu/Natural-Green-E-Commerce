@@ -1,4 +1,5 @@
 import React,{useEffect, useRef} from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
 import { GiWorld } from "react-icons/gi";
 import { useSelector, useDispatch } from "react-redux";
 import {showLanguageDropDown, changeLanguage, closeLanguageDropDown} from "../../../redux/states/header/topBar/topBar.js";
@@ -28,7 +29,7 @@ export default function Language() {
         <LanguageSection ref={ref}>
             <LanguageButton onClick={() => dispatch(showLanguageDropDown())}>
               <GiWorld size={20} className="mr-1" />
-              <h5>{Language}</h5>
+              <h5 className="flex items-center">{Language} <MdKeyboardArrowDown size={20} className={`${languageDropDownCheck && "rotate-180"} ease-in-out duration-300 `}/></h5>
             </LanguageButton>
               <AnimatePresence>
               {languageDropDownCheck && (

@@ -6,7 +6,7 @@ import Favorite from './Favorite'
 export default function index() {
   return (
     <>
-      <div className='flex relative justify-between w-40 p-2 gap-x-4 mr-3 z-5'>    
+      <div className='hidden lg:flex relative justify-between w-40 p-2 gap-x-4 mr-3 z-5'>    
         <Profile/>
         <Favorite/>
         <Basket/>

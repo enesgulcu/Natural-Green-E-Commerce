@@ -7,7 +7,7 @@ export default function TopBar() {
   return (
     <Section className="z-10 relative">
       <Container>
-        <p className='text-sm text-center md:text-left md:text-lg'>Welcome to Ecomart in Your Dream Online Store!</p>
+        <p className='ml-4 hidden lg:block text-lg text-center'>Welcome to Ecomart in Your Dream Online Store!</p>
         <RightSide>
           <Language/>
           <span>|</span>

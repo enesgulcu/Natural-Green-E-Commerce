@@ -1,4 +1,6 @@
 import React,{useEffect, useRef} from "react";
+import { MdKeyboardArrowDown } from "react-icons/md";
+
 import { useSelector, useDispatch } from "react-redux";
 import {MoneySection, MoneyButton, DropDownMoney, MoneyList, ChooseMoney} from '../../../styles/Header/topBar';
 import {showMoneyDropDown, changeMoney, closeMoneyDropDown} from "../../../redux/states/header/topBar/topBar.js";
@@ -14,7 +16,7 @@ export default function Money() {
 
     useEffect(() => {
       const handleClickOutside = (event) => {
-        if (!ref.current.contains(event.target)) {
+        if (!ref.current?.contains(event.target)) {
           dispatch(closeMoneyDropDown());
         }
       };
@@ -25,7 +27,7 @@ export default function Money() {
     <>
        <MoneySection ref={ref}>
             <MoneyButton onClick={() => dispatch(showMoneyDropDown())}>
-              <h5>{Money}</h5>
+            <h5 className="flex items-center">{Money} <MdKeyboardArrowDown size={20} className={`${moneyDropDownCheck && "rotate-180"} ease-in-out duration-300 `}/></h5>
             </MoneyButton>
               <AnimatePresence>
               {moneyDropDownCheck && (
@@ -34,7 +36,7 @@ export default function Money() {
                 //animate:animasyonun bitiş değerleri
                 //exit:animasyonun geri sarma final değerleri
                 //transition:animasyonun gerçekleşme süresi
-                //Not: "motion.div" ile hareket edecek olan yapıyı sarmalla!
+                //Not: "motion.div" ile hareket edecek olan yapıyı sarmalla! 
                 initial={{ opacity: 0, x:-45 }}
                 animate={{ opacity: 1, y: 30 }}
                 exit={{ opacity: 0, y:0 }}

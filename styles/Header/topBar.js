@@ -12,9 +12,9 @@ items-center
 flex
 py-2.5
 mx-auto
-
-md:flex-row
-md:justify-between
+justify-center
+lg:flex-row
+lg:justify-between
 `;
 
 export const RightSide = tw.div`
