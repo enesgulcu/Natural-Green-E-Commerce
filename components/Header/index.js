@@ -10,10 +10,13 @@ import useWindowDimensions from '../../hooks/useWindowDimensions.js'
 import { HiMenuAlt2 } from "react-icons/hi";
 import { IoIosSearch } from "react-icons/io";
 import MenuSidebar from "./MenuSidebar/index"
+import { useSelector, useDispatch } from "react-redux";
+import {showMenuSidebar} from "../../redux/states/header/topBar/topBar.js";
 export default function Index() {
 
   const [showSearch, setShowSearch] = useState(false);
   const { width } = useWindowDimensions();
+  const dispatch = useDispatch();
 
   return (
     <header>
@@ -32,8 +35,8 @@ export default function Index() {
           <>
           <div className='container lg:border-b pb-5 mx-auto px-6 flex justify-between items-center'>
               
-              <div>
-                <HiMenuAlt2 size={40}/>
+              <div className='bg-gray-100 p-2 rounded-full hover:text-white hover:bg-primary group ease-in-out duration-300 cursor-pointer'>
+                <HiMenuAlt2 size={40} onClick={()=>dispatch(showMenuSidebar())} className="group-hover:rotate-180"/>
               </div>
               <Logo/>
               <div onClick={()=>setShowSearch(!showSearch)} className='text-gray-500 bg-gray-100  rounded-full p-3 hover:bg-primary hover:text-white ease-in-out duration-500 cursor-pointer relative'>

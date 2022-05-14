@@ -5,7 +5,7 @@ export default function index() {
   return (
     <section className='px-6 container mx-auto lg:flex justify-between items-center hidden'>
         <Menu/>
-        <InfoGroup/>
+        <InfoGroup mobileVisible={true}/>
 
     </section>
   )

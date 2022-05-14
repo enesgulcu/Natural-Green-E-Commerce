@@ -5,7 +5,7 @@ export default function index() {
   return (
     <>
       <Link href='/'>
-      <img src="/Logo.png" style={{width:"auto", height:"45px"}} alt="" className='cursor-pointer'/>
+      <img src="/Logo.png" style={{width:"175px", height:"45px"}} alt="" className='cursor-pointer'/>
       </Link>        
     </>
   )

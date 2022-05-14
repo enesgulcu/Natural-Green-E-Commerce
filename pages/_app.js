@@ -5,7 +5,7 @@ import  Header  from '../components/Header';
 
 
 
-function MyApp({ Component, pageProps }) {
+export default function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
     <Header/>
@@ -13,5 +13,3 @@ function MyApp({ Component, pageProps }) {
     </Provider>
   )
 }
-
-export default MyApp
