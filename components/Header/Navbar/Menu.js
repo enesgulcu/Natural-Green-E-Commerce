@@ -9,13 +9,13 @@ export default function Menu() {
                 <Link href="/">Home</Link>
             </li>
             <li className='flex items-center relative group py-6'>
-                <Link href="#" >
+                <Link href="/shop" >
                     <a className='group-hover:text-primary'>Shop</a>
                 </Link>
                 <MdKeyboardArrowDown size={20} className="mt-0.5 group-hover:rotate-180 ease-in-out duration-300 group-hover:text-primary "/>
             </li>
             <li className=' flex items-center relative group cursor-pointer py-6'>
-                <Link href="#" >
+                <Link href="/catagories" >
                     <a className='group-hover:text-primary'>Categories</a>
                 </Link>
                 <MdKeyboardArrowDown size={20} className="mt-0.5 group-hover:rotate-180 ease-in-out duration-300 group-hover:text-primary "/>
@@ -125,13 +125,13 @@ export default function Menu() {
                 </div>
             </li>
             <li className='flex items-center relative group py-6'>
-            <Link href="#" >
+            <Link href="/blog" >
                     <a className='group-hover:text-primary'>Blog</a>
                 </Link>
                 <MdKeyboardArrowDown size={20} className="mt-0.5 group-hover:rotate-180 ease-in-out duration-300 group-hover:text-primary "/>
             </li>
             <li className='flex items-center relative group py-6'>
-                <Link href="#" >
+                <Link href="/aboutus" >
                     <a className='group-hover:text-primary'>About Us</a>
                 </Link>
                 <MdKeyboardArrowDown size={20} className="mt-0.5 group-hover:rotate-180 ease-in-out duration-300 group-hover:text-primary "/>
